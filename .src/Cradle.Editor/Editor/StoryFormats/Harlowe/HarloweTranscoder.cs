@@ -402,8 +402,8 @@ namespace Cradle.Editor.StoryFormats.Harlowe
 
 		string BuildVariableRef(LexerToken token)
 		{
-			//Importer.RegisterVar(token.name);
-			_lastVariable = string.Format("Vars[\"{0}\"]", EscapeReservedWord (token.name));
+			Importer.RegisterVar(token.name);
+			_lastVariable = string.Format("Vars[\"{0}\"]", token.name);
 			return _lastVariable;
 		}
 

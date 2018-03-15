@@ -30,6 +30,10 @@ public partial class @{{{storyName}}}: {{storyFormatClass}}
 		this.StartPassage = "{{{startPassage}}}";
 
 		base.Vars = new Dictionary<string, StoryVar>();
+		
+		{{#vars}}
+		if(!base.Vars.ContainsKey("{{{.}}})")) {base.Vars.Add("{{{.}}}", default(StoryVar));}
+		{{/vars}}
 
 		{{#macroLibs}}
 		{{Name}} = new {{Type}}() { Story = this };
