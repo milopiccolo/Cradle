@@ -385,7 +385,7 @@ namespace Cradle.Editor.StoryFormats.Harlowe
 			throw new StoryFormatTranscodeException(string.Format("{0} macro was not formatted correctly", moveAssignment ? "Move" : "Put"));
 		}
 
-		public void GenerateExpression(LexerToken[] tokens, int start = 0, int end = -1)
+		public void GenerateExpression(LexerToken[] tokens, int start = 0, int end = -1, bool asString = false)
 		{
 			// Skip whitespace at beginning of expression
 			while (start < tokens.Length && tokens[start].type == "whitespace")
@@ -402,8 +402,8 @@ namespace Cradle.Editor.StoryFormats.Harlowe
 
 		string BuildVariableRef(LexerToken token)
 		{
-			Importer.RegisterVar(token.name);
-			_lastVariable = string.Format("Vars.{0}", EscapeReservedWord (token.name));
+			//Importer.RegisterVar(token.name);
+			_lastVariable = string.Format("Vars[\"{0}\"]", EscapeReservedWord (token.name));
 			return _lastVariable;
 		}
 

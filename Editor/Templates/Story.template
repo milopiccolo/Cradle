@@ -17,30 +17,6 @@ using {{storyFormatNamespace}};
 
 public partial class @{{{storyName}}}: {{storyFormatClass}}
 {
-	#region Variables
-	// ---------------
-
-	public class VarDefs: RuntimeVars
-	{
-		public VarDefs()
-		{
-			{{#vars}}
-			VarDef("{{{.}}}", () => this.@{{{.}}}, val => this.@{{{.}}} = val);
-			{{/vars}}
-		}
-
-		{{#vars}}
-		public StoryVar @{{{.}}};
-		{{/vars}}
-	}
-
-	public new VarDefs Vars
-	{
-		get { return (VarDefs) base.Vars; }
-	}
-
-	// ---------------
-	#endregion
 
 	#region Initialization
 	// ---------------
@@ -53,7 +29,7 @@ public partial class @{{{storyName}}}: {{storyFormatClass}}
 	{
 		this.StartPassage = "{{{startPassage}}}";
 
-		base.Vars = new VarDefs() { Story = this, StrictMode = {{strictMode}} };
+		base.Vars = new Dictionary<string, StoryVar>();
 
 		{{#macroLibs}}
 		{{Name}} = new {{Type}}() { Story = this };

@@ -44,7 +44,7 @@ namespace Cradle
 		public List<StoryOutput> Output { get; private set; }
         // hack: we make this static to share state between all Twine stories.
         // keep an eye out for problems with this.
-		public static RuntimeVars Vars { get; protected set; }
+		public Dictionary<string, StoryVar> Vars { get; protected set; }
 		public StoryPassage CurrentPassage { get; private set; }
 		public StoryLink CurrentLinkInAction { get; private set; }
 		public int NumberOfLinksDone { get; private set; }
@@ -136,8 +136,8 @@ namespace Cradle
 				throw new InvalidOperationException("Can only reset a story that is Idle.");
 
 			// Reset twine vars
-			if (Vars != null)
-				Vars.Reset();
+			//if (Vars != null)
+			//	Vars.Reset();
 
 			this.Init();
 		}

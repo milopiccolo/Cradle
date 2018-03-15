@@ -48,7 +48,6 @@
     <Compile Include="Core\GroupScope.cs" />
     <Compile Include="Core\StoryOutput.cs" />
     <Compile Include="Core\RuntimeMacros.cs" />
-    <Compile Include="Core\RuntimeVars.cs" />
     <Compile Include="Core\Story.cs" />
     <Compile Include="Core\VarType.cs" />
     <Compile Include="Core\StoryVar.cs" />
