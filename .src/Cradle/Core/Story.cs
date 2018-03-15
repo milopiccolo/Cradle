@@ -29,7 +29,7 @@ namespace Cradle
 
     public abstract class Story: MonoBehaviour
     {
-		public bool AutoPlay = true;
+		public bool AutoPlay = false;
         public string StartPassage = "Start";
 		public List<GameObject> AdditionalCues;
 
@@ -42,7 +42,9 @@ namespace Cradle
 		
         public Dictionary<string, StoryPassage> Passages { get; private set; }
 		public List<StoryOutput> Output { get; private set; }
-		public RuntimeVars Vars { get; protected set; }
+        // hack: we make this static to share state between all Twine stories.
+        // keep an eye out for problems with this.
+		public static RuntimeVars Vars { get; protected set; }
 		public StoryPassage CurrentPassage { get; private set; }
 		public StoryLink CurrentLinkInAction { get; private set; }
 		public int NumberOfLinksDone { get; private set; }

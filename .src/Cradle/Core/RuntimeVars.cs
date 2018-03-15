@@ -21,13 +21,16 @@ namespace Cradle
 
 		protected void VarDef(string name, Func<StoryVar> getter, Action<StoryVar> setter)
 		{
-			accessors.Add(name, new Accessor() { Get = getter, Set = setter});
+            if (!accessors.ContainsKey(name))
+            {
+                accessors.Add(name, new Accessor() { Get = getter, Set = setter });
+            }
 		}
 
 		internal void Reset()
 		{
-			foreach (Accessor accessor in accessors.Values)
-				accessor.Set(default(StoryVar));
+			//foreach (Accessor accessor in accessors.Values)
+			//	accessor.Set(default(StoryVar));
 		}
 
 		public bool ContainsKey(string varName)
