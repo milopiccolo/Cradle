@@ -44,8 +44,8 @@ namespace Cradle
 		public List<StoryOutput> Output { get; private set; }
         // hack: we make this static to share state between all Twine stories.
         // keep an eye out for problems with this.
-		public Dictionary<string, StoryVar> Vars { get; protected set; }
-		public StoryPassage CurrentPassage { get; private set; }
+        public static Dictionary<string, StoryVar> Vars { get; protected set; } = new Dictionary<String, StoryVar>();
+        public StoryPassage CurrentPassage { get; private set; }
 		public StoryLink CurrentLinkInAction { get; private set; }
 		public int NumberOfLinksDone { get; private set; }
         public List<string> PassageHistory {get; private set; }
