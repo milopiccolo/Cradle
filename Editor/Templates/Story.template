@@ -32,7 +32,7 @@ public partial class @{{{storyName}}}: {{storyFormatClass}}
 		base.Vars = new Dictionary<string, StoryVar>();
 		
 		{{#vars}}
-		if(!base.Vars.ContainsKey("{{{.}}})")) {base.Vars.Add("{{{.}}}", default(StoryVar));}
+		if(!base.Vars.ContainsKey("{{{.}}}")) {base.Vars.Add("{{{.}}}", default(StoryVar));}
 		{{/vars}}
 
 		{{#macroLibs}}
